@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Account</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .top-bar {
+            width: 100%;
+            padding: 18px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: 600;
+            color: #111;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: #ff9900;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .signup-card {
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 24px 26px 30px;
+            width: 350px;
+            margin-top: 10px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        .signup-card h2 {
+            font-size: 24px;
+            margin-bottom: 18px;
+            color: #111;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #111;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 3px;
+            border: 1px solid #a6a6a6;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.15s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #e47911;
+            box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.4);
+        }
+
+        /* Error styling for Django form errors */
+        .form-group .errorlist {
+            color: #c5221f;
+            font-size: 12px;
+            margin-top: 4px;
+            list-style: none;
+        }
+
+        .form-group .errorlist li {
+            margin-bottom: 2px;
+        }
+
+        .form-group ul.errorlist {
+            color: #c5221f;
+            font-size: 12px;
+            margin: 4px 0 0 0;
+            list-style: none;
+        }
+
+        .signup-btn {
+            width: 100%;
+            background: linear-gradient(#f7dfa5, #f0c14b);
+            border-radius: 4px;
+            border: 1px solid #a88734;
+            padding: 8px 0;
+            font-size: 15px;
+            margin-top: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .signup-btn:hover {
+            background: linear-gradient(#f5d78e, #eeb933);
+        }
+
+        .helper-text {
+            font-size: 12px;
+            color: #555;
+            margin-top: 10px;
+            line-height: 1.4;
+        }
+
+        .helper-text a {
+            color: #0066c0;
+            text-decoration: none;
+        }
+
+        .helper-text a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 18px 0 10px;
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+        }
+
+        footer a {
+            color: #0066c0;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .signup-card {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo-text">My<span>Shop</span></div>
+    </div>
+
+    <div class="container">
+        <div class="signup-card">
+            <h2>Create account</h2>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Renders all your form fields: First_Name, Last_Name, Mail, password1, password2 -->
+                {{ form.as_p }}
+
+                <button type="submit" class="signup-btn">Create your MyShop account</button>
+            </form>
+
+            <p class="helper-text">
+                By creating an account, you agree to MyShop's
+                <a href="#">Conditions of Use</a> and
+                <a href="#">Privacy Notice</a>.
+            </p>
+
+            <p class="helper-text">
+                Already have an account? <a href="{% url 'login' %}">Sign in here</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <a href="#">Conditions of Use</a>
+        <a href="#">Privacy Notice</a>
+        <a href="#">Help</a>
+    </footer>
+</body>
+</html>

@@ -7,10 +7,10 @@ class SignUpForm(UserCreationForm):
 
     #Name
     First_Name=forms.CharField( max_length=15, required=True)
-    Last_Name=forms.CharField(, max_length=10, required=True)
+    Last_Name=forms.CharField( max_length=10, required=True)
 
     #Gmail
-    Mail=forms.forms.EmailField(, required=True)
+    Mail=forms.EmailField(required=True)
 
     
 
