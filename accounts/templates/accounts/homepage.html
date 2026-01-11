@@ -2,317 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MyShop – Home</title>
+    <title>MyShop Home</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #e3e6e6;
-        }
-
-        /* Header / Navbar */
-        header {
-            width: 100%;
-        }
-
-        .nav-main {
-            background-color: #131921;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 8px 18px;
-        }
-
-        .nav-left,
-        .nav-center,
-        .nav-right {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-text {
-            font-size: 26px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .logo-text span {
-            color: #ff9900;
-        }
-
-        .nav-center {
-            flex: 1;
-            justify-content: center;
-            padding: 0 20px;
-        }
-
-        .nav-search {
-            display: flex;
-            width: 100%;
-            max-width: 650px;
-            height: 40px;
-        }
-
-        .nav-search select {
-            width: 70px;
-            border: none;
-            background: #f3f3f3;
-            border-radius: 4px 0 0 4px;
-            padding: 0 6px;
-            font-size: 12px;
-        }
-
-        .nav-search input {
-            flex: 1;
-            border: none;
-            padding: 0 10px;
-            font-size: 14px;
-        }
-
-        .nav-search button {
-            width: 45px;
-            border: none;
-            background: #febd69;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .nav-right-item {
-            margin-left: 18px;
-            font-size: 12px;
-            cursor: pointer;
-        }
-
-        .nav-right-item span {
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .nav-secondary {
-            background-color: #232f3e;
-            color: #fff;
-            padding: 6px 18px;
-            display: flex;
-            gap: 16px;
-            font-size: 13px;
-        }
-
-        .nav-secondary a {
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .nav-secondary a:hover {
-            text-decoration: underline;
-        }
-
-        /* Hero section */
-        .hero {
-            background: url("https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1350&q=80")
-                        center/cover no-repeat;
-            height: 320px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-        }
-
-        .hero-msg {
-            margin-bottom: 24px;
-            background-color: #f5f6f6;
-            padding: 10px 20px;
-            font-size: 14px;
-            border-radius: 3px;
-        }
-
-        .hero-msg a {
-            color: #007185;
-            text-decoration: none;
-        }
-
-        .hero-msg a:hover {
-            text-decoration: underline;
-        }
-
-        /* Product cards */
-        .shop-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1300px;
-            margin: -80px auto 40px;
-        }
-
-        .shop-card {
-            background: #fff;
-            padding: 18px;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-        }
-
-        .shop-card h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .shop-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            margin-bottom: 10px;
-        }
-
-        .shop-card a {
-            color: #007185;
-            font-size: 13px;
-            text-decoration: none;
-        }
-
-        .shop-card a:hover {
-            text-decoration: underline;
-        }
-
-        /* Footer */
-        footer {
-            background: #232f3e;
-            color: #ddd;
-            padding: 24px 20px;
-            font-size: 13px;
-        }
-
-        .footer-top {
-            text-align: center;
-            padding-bottom: 14px;
-            border-bottom: 1px solid #3a4553;
-            margin-bottom: 16px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-copy {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 12px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-center {
-                display: none;
-            }
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { background: #e3e6e6; }
+        header { background:#131921; color:#fff; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; }
+        .logo-text { font-size:26px; font-weight:600; }
+        .logo-text span { color:#ff9900; }
+        .nav-right span { font-weight:700; }
+        .hero { background:#fff; padding:30px 20px; text-align:center; margin:20px; border-radius:6px; }
+        .hero h1 { font-size:26px; margin-bottom:10px; }
+        .hero p { font-size:14px; color:#444; }
+        .btn { display:inline-block; margin-top:16px; padding:8px 16px; background:#f0c14b; border-radius:4px; border:1px solid #a88734; text-decoration:none; color:#111; }
     </style>
 </head>
 <body>
 <header>
-    <div class="nav-main">
-        <div class="nav-left">
-            <div class="logo-text">My<span>Shop</span></div>
-        </div>
+    <div class="logo-text">My<span>Shop</span></div>
 
-        <div class="nav-center">
-            <form class="nav-search" method="get" action="#">
-                <select>
-                    <option>All</option>
-                    <option>Electronics</option>
-                    <option>Fashion</option>
-                    <option>Books</option>
-                </select>
-                <input type="text" placeholder="Search MyShop">
-                <button type="submit">🔍</button>
-            </form>
-        </div>
-
-        <div class="nav-right">
-            <div class="nav-right-item">
-                <span>Hello, {{ request.user.is_authenticated|yesno:"Sanjay,Sign in" }}</span><br>
-                Account & Lists
-            </div>
-            <div class="nav-right-item">
-                Returns<br><span>& Orders</span>
-            </div>
-            <div class="nav-right-item">
-                🛒<span> Cart</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="nav-secondary">
-        <a href="#">All</a>
-        <a href="#">Best Sellers</a>
-        <a href="#">Mobiles</a>
-        <a href="#">Fashion</a>
-        <a href="#">Electronics</a>
-        <a href="#">Customer Service</a>
-        <a href="#">Today's Deals</a>
+    <div class="nav-right">
+        {% if user.is_authenticated %}
+            <div>Hello, <span>{{ user.username }}</span></div>
+        {% else %}
+            <div>Hello, Guest</div>
+        {% endif %}
     </div>
 </header>
 
 <section class="hero">
-    <div class="hero-msg">
-        You are on MyShop.com. You can also view our products tailored for India. 
-        <a href="#">Click here to go to MyShop.in</a>
-    </div>
+    {% if user.is_authenticated %}
+        <h1>Welcome back, {{ user.username }} 👋</h1>
+        <p>Your session is active and you are logged in.</p>
+        <a href="/accounts/logout/" class="btn">Logout</a>
+    {% else %}
+        <h1>Welcome to MyShop</h1>
+        <p>Please sign in to see your personalised homepage.</p>
+        <a href="/accounts/login/" class="btn">Sign in</a>
+        <a href="/accounts/signup/" class="btn" style="margin-left:8px;">Create account</a>
+    {% endif %}
 </section>
-
-<section class="shop-section">
-    <div class="shop-card">
-        <h2>Upgrade your gadgets</h2>
-        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80" alt="Electronics">
-        <a href="#">Shop now</a>
-    </div>
-    <div class="shop-card">
-        <h2>Fresh fashion picks</h2>
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80" alt="Fashion">
-        <a href="#">See more</a>
-    </div>
-    <div class="shop-card">
-        <h2>Books for every mood</h2>
-        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80" alt="Books">
-        <a href="#">Discover now</a>
-    </div>
-    <div class="shop-card">
-        <h2>Home essentials</h2>
-        <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=900&q=80" alt="Home">
-        <a href="#">Explore deals</a>
-    </div>
-</section>
-
-<footer>
-    <div class="footer-top">
-        <a href="#" style="color:#fff; text-decoration:none;">Back to top</a>
-    </div>
-
-    <div class="footer-links">
-        <a href="#">Conditions of Use</a>
-        <a href="#">Privacy Notice</a>
-        <a href="#">Help</a>
-    </div>
-
-    <div class="footer-copy">
-        © 2026, MyShop.com, Inc. or its affiliates
-    </div>
-</footer>
 </body>
 </html>
