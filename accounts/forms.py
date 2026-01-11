@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django import forms
 
 
+
 class SignUpForm(UserCreationForm):
 
     #Name
@@ -19,6 +20,6 @@ class SignUpForm(UserCreationForm):
         fields=("First_Name","First_Name","Last_Name","Mail")
 
 
-class login_form(AuthenticationForm):
+class Login_Form(AuthenticationForm):
     pass 
 
