@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
 from django import forms
 
@@ -18,4 +18,7 @@ class SignUpForm(UserCreationForm):
         model=User
         fields=("First_Name","First_Name","Last_Name","Mail")
 
+
+class login_form(AuthenticationForm):
+    pass 
 
