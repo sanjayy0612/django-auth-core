@@ -2,160 +2,233 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Create Account | MyShop</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - MyShop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #4F46E5; /* Indigo */
+            --primary-hover: #4338ca;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --border-color: #d1d5db;
+            --error-color: #ef4444;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
         }
 
         body {
-            background: #f2f2f2;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .top-bar {
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 32px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #ff9900;
-        }
-
-        .container {
-            flex: 1;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
         }
 
-        .card {
-            background: #fff;
-            width: 360px;
-            padding: 25px 28px 30px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            margin-top: 10px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+        .auth-container {
+            width: 100%;
+            max-width: 440px;
         }
 
-        .card h2 {
+        .logo-area {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        .auth-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .auth-card h2 {
             font-size: 24px;
-            margin-bottom: 18px;
-            color: #111;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            text-align: center;
         }
 
-        /* Django form styling */
-        form p {
-            margin-bottom: 14px;
+        .subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 32px;
         }
 
-        label {
+        /* --- Form Styling --- */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
             display: block;
             font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 4px;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 6px;
         }
 
-        input {
+        /* Target all text-like inputs generically */
+        .form-group input:not([type="checkbox"]):not([type="radio"]), 
+        .form-group select, 
+        .form-group textarea {
             width: 100%;
-            padding: 8px 10px;
-            font-size: 14px;
-            border-radius: 3px;
-            border: 1px solid #a6a6a6;
-            outline: none;
-        }
-
-        input:focus {
-            border-color: #e47911;
-            box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.4);
-        }
-
-        .errorlist {
-            list-style: none;
-            color: #c5221f;
-            font-size: 12px;
-            margin-top: 4px;
-        }
-
-        .signup-btn {
-            width: 100%;
-            margin-top: 10px;
-            padding: 9px 0;
+            padding: 10px 14px;
             font-size: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            background-color: #fff;
+            color: var(--text-main);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        /* Error States */
+        .error-text {
+            color: var(--error-color);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+        
+        /* Help Text */
+        .help-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
             font-weight: 600;
-            background: linear-gradient(#f7dfa5, #f0c14b);
-            border: 1px solid #a88734;
-            border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
         }
 
-        .signup-btn:hover {
-            background: linear-gradient(#f5d78e, #eeb933);
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
         }
 
-        .helper-text {
-            font-size: 12px;
-            color: #555;
-            margin-top: 14px;
-            line-height: 1.4;
-        }
-
-        footer {
+        /* Footer Links */
+        .card-footer {
+            margin-top: 24px;
             text-align: center;
-            font-size: 12px;
-            padding: 18px 0;
-            color: #555;
+            font-size: 14px;
+            color: var(--text-muted);
         }
+
+        .card-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .card-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Django Message Alerts */
+        .messages {
+            margin-bottom: 20px;
+        }
+        .message {
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .message.success { background: #d1fae5; color: #065f46; }
+        .message.error { background: #fee2e2; color: #991b1b; }
+
     </style>
 </head>
-
 <body>
 
-    <div class="top-bar">
-        <div class="logo">My<span>Shop</span></div>
-    </div>
+    <div class="auth-container">
+        
+        <div class="logo-area">
+            <div class="logo-text">My<span>Shop</span></div>
+        </div>
 
-    <div class="container">
-        <div class="card">
-            <h2>Create account</h2>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
 
-            <form method="post">
+        <div class="auth-card">
+            <h2>Create Account</h2>
+            <p class="subtitle">Enter your details to get started</p>
+
+            <form method="post" novalidate>
                 {% csrf_token %}
-                {{ form.as_p }}
 
-                <button type="submit" class="signup-btn">
-                    Create your MyShop account
-                </button>
+                {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">
+                        {{ field.label }}
+                    </label>
+                    
+                    {{ field }}
+
+                    {% if field.help_text %}
+                        <span class="help-text">{{ field.help_text }}</span>
+                    {% endif %}
+
+                    {% for error in field.errors %}
+                        <div class="error-text">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+
+                <button type="submit" class="submit-btn">Sign Up</button>
             </form>
 
-            <p class="helper-text">
-                By creating an account, you agree to MyShop's
-                Conditions of Use and Privacy Notice.
-            </p>
-
-            <p class="helper-text">
-                Already have an account?
-                <!-- Add login later when URL exists -->
-                <span style="color:#0066c0;">Sign in</span>
-            </p>
+            <div class="card-footer">
+                Already have an account? <a href="/accounts/login/">Log in</a>
+            </div>
         </div>
     </div>
-
-    <footer>
-        © 2026 MyShop. All rights reserved.
-    </footer>
 
 </body>
 </html>
